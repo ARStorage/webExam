@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERSONIC</title>
+
+    <style>
+
+        @font-face{
+            font-family:'Typo_SsangmunDongB'; /*글꼴*/
+            src: local('Typo_SsangmunDongB'),
+                url('Typo_SsangmunDongB.eot'),
+                url('Typo_SsangmunDongB.woff') format('woff'),
+                url('Typo_SsangmunDongB.ttf') format('truetype');
+        }
+
+
+        *{box-sizing: border-box;}
+        body{
+            margin:0;
+            cursor: url("cursor_img.cur"),auto;
+        }
+        .wrapper{
+            position : relative;
+            width: 1460px;
+            height:4800px;
+
+            background-color: lavender;
+        
+        }
+
+        #side-navi{
+            position : fixed;
+            width:270px;
+            height:100%;
+            z-index: 1;
+
+            background-color: #ffffff80;
+            transition-duration: 1s;
+        }
+
+        #logo{
+            height: 30%;
+            padding-top: 30px;
+        }
+
+        #logo:hover{
+
+            cursor: pointer;
+
+        }
+
+        #navi-list{
+            list-style: none;
+            margin :0;
+            padding:0;
+            color : rgb(24, 22, 22);
+        }
+
+        #navi-list >li{
+            padding:10px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        #navi-list > li:hover{
+            background-color: rgb(210, 190, 233);
+        }
+        
+        .hidden-list{
+            position: fixed;
+            width:200px;
+            top:0px;
+            left:270px;
+            height:100%;
+            z-index: 1;
+            visibility: hidden;
+
+            background-color: #ffffff80;
+        }
+
+        .hidden-list{
+            list-style: none;
+            margin :0;
+            padding-top:200px;
+            color : rgb(24, 22, 22);
+        }
+
+       .hidden-list >li{
+            padding:10px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .hidden-list > li:hover{
+            background-color: rgb(210, 190, 233);
+        }
+
+        #navi-list > li:hover .hidden-list{
+            visibility: visible;
+        }
+
+        
+        .content_title_01{
+            position: absolute;
+            width: 420px;
+            height: 100px;
+            top: 150px;
+            left: 400px;
+            font-family: 'Typo_SsangmunDongB', sans-serif;
+            font-style:italic;
+            color: rgb(50, 43, 43);
+
+        }
+
+        .content_background_01{
+            position: absolute;
+            width: 325px;
+            height: 480px;
+            top: 200px;
+            left: 400px;
+
+            background-color: black;
+        }
+
+        .content_Box_01{
+            position: absolute;
+            width: 325px;
+            height: 480px;
+            top: 190px;
+            left: 410px;
+
+            background-color:white;
+
+        }
+
+        .content_Box_01:hover ~ #txtBox_01{
+            visibility: visible;
+        }
+        
+        #txtBox_01{
+            position: absolute;
+            background-color: #80808050;
+            top: 190px;
+            left: 410px;
+            width: 325px;
+            height: 480px;
+            overflow: hidden;
+            font-family: 'Typo_SsangmunDongB', sans-serif;
+            visibility: hidden;
+            transition-duration: 1s;
+        }
+        #txtBox_01 > p{
+            margin: 0;
+            padding-top: 30px;
+            padding-left: 5px;
+            height: 100%;
+        }
+
+
+        .content_title_02{
+            position: absolute;
+            width: 420px;
+            height: 100px;
+            top: 20px;
+            left: 760px;
+
+            font-style:italic;
+            font-family: 'Typo_SsangmunDongB', sans-serif;
+            color: rgb(50, 43, 43);
+
+        }
+
+        .content_background_02{
+            position: absolute;
+            width: 325px;
+            height: 480px;
+            top: 60px;
+            left: 760px;
+
+            background-color: black;
+        }
+
+        .content_Box_02{
+            position: absolute;
+            width: 325px;
+            height: 480px;
+            top: 50px;
+            left: 770px;
+            background-color:white;
+
+        }
+
+        .content_Box_02:hover ~ #txtBox_02{
+            visibility: visible;
+        }
+        
+        #txtBox_02{
+            position: absolute;
+            background-color: #80808050;
+            top: 50px;
+            left: 770px;
+            width: 325px;
+            height: 480px;
+            visibility: hidden;
+            overflow: hidden;
+            font-family: 'Typo_SsangmunDongB', sans-serif;
+            transition-duration: 1s;
+        }
+        #txtBox_02 > p{
+            margin: 0;
+            padding-top: 30px;
+            padding-left: 5px;
+            height: 100%;
+        }
+
+        .content_Box_03{
+            position: absolute;
+            width: 325px;
+            height: 480px;
+            top: 20px;
+            left: 1000px;
+        }
+
+        .content_Box_04{
+            position: absolute;
+            width: 325px;
+            height: 480px;
+            top: 500px;
+            left: 870px;
+        }
+
+        .content_Box_05{
+            position: absolute;
+            top: 750px;
+            left: 0px;
+        }
+
+        .store_content{
+            position: absolute;
+            top: 2050px;
+            left : 400px;
+        }
+
+        .store_title{
+            font-size: 40px;
+            padding-bottom: 50px;
+        }
+        
+
+        [class*="product_0"]{
+            float:left;
+            padding-right: 80px;
+            padding-bottom: 50px;
+        }
+
+
+        .product_01>:hover ~ .view_01{
+            visibility: visible;
+        }
+
+       .view_01{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #70809050;
+            top:104px;
+            visibility: hidden;
+            transition-duration: 1s;
+        }
+
+        .product_02>:hover ~ .view_02{
+            visibility: visible;
+        }
+
+
+       .view_02{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #70809050;
+            top:104px;
+            left: 480px;
+            visibility: hidden;
+            transition-duration: 1s;
+        }
+
+        .product_03>:hover ~ .view_03{
+            visibility: visible;
+        }
+
+
+       .view_03{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #70809050;
+            top:635px;
+            visibility: hidden;
+            transition-duration: 1s;
+        }
+
+        .product_04>:hover ~ .view_04{
+            visibility: visible;
+        }
+
+
+       .view_04{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #70809050;
+            top:635px;
+            left: 480px;
+            visibility: hidden;
+            transition-duration: 1s;
+        }
+
+        div>button{
+            border: 0px solid;
+            background-color:rgb(226, 213, 235);
+            width: 200px;
+            height: 100px;
+            border-radius: 10px;
+            margin-top: 60px;
+            margin-left: 90px;
+
+
+            font-size: 20px;
+            font-family: 'Typo_SsangmunDongB', sans-serif;
+
+            color:rgb(59, 63, 68);
+            
+        }
+
+        .lookbook{
+            position: absolute;
+            left :350px;
+            top: 3300px;
+            z-index: 0;
+        }
+
+        .slider{
+        width: 1000px;
+        height: 600px;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+        }
+        .slider input[type=radio]{
+            display: none;
+        }
+
+        ul.imgs{
+        padding: 0;
+        margin: 0;
+        list-style: none;    
+        }
+        
+        ul.imgs li{
+            position: absolute;
+            left: 1000px;
+            transition-delay: 1s;
+
+            padding: 0;
+            margin: 0;
+        }
+
+        .bullets{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 20px;
+            z-index: 2;
+        }
+        .bullets label{
+            display: inline-block;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.55);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
+            background-color: #fff;
+        }
+        .slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
+            background-color: #fff;
+        }
+        .slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
+            background-color: #fff;
+        }
+        .slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
+            background-color: #fff;
+        }
+
+        .slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
+        left: 0;
+        transition: 0.5s;
+        z-index:1;
+        }
+        .slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
+            left: 0;
+            transition: 0.5s;
+            z-index:1;
+        }
+        .slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
+            left: 0;
+            transition: 0.5s;
+            z-index:1;
+        }
+        .slider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
+            left: 0;
+            transition: 0.5s;
+            z-index:1;
+        }
+
+        .ect_content{
+            position: absolute;
+            top: 4100px;
+            left : 550px;
+            
+        }
+
+        .contact>p{
+            margin: 1%;
+            text-align: center;
+            font-family: 'Typo_SsangmunDongB', sans-serif;
+            color: rgb(59, 63, 68);
+        }
+
+        .copyright{
+            margin-top: 250px;
+            color: rgb(59, 63, 68);
+        }
+
+        span{font-family: 'Typo_SsangmunDongB', sans-serif;}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="side-navi">
+            <div id="logo"><img src="logo.PNG" alt="" width="260" height="70"></div>
+            <ul id="navi-list">
+                <li>CART</li>
+                <li>MYPAGE
+
+                    <ul class="hidden-list">
+                        <li>ORDER</li>
+                        <li>REVIEW</li>
+                    </ul>
+
+                </li>
+                <li>STORE
+                    
+                    <ul class="hidden-list">
+                        <li>STATIONARY</li>
+                        <li>CLOTHES</li>
+                    </ul>
+
+                </li>
+                <li>ABOUT US</li>
+                <li>ARCHIVE</li>
+                <li>COMMUNITY</li>
+                <li>KOR/ENG</li>
+            </ul>
+        </div>
+
+        <div class = "main">
+            <div class = "main_content_01">
+                <div class="content_title_01"><strong>FANCY</strong></div>
+                <div class="content_background_01">백그라운드</div>
+                <div class="content_Box_01"><img src="main_img_01.PNG" alt=""></div>
+                <div id="txtBox_01">
+                    <p>
+                        <strong>SUPERSONIC</strong><br><br><br>
+                        I need to be myself<br>
+                        I can't be no one else<br>
+                        I'm feeling supersonic<br>
+                        Give me gin and tonic<br>
+                        You can have it all but How much do you want it.
+                    </p>
+                </div>
+            </div>
+
+            <div class="main_content_02"> 
+                <div class="content_title_02"><strong>KITSCH</strong></div>
+                <div class="content_background_02">백그라운드</div>
+                <div class="content_Box_02"><img src="main_img_02.PNG" alt=""></div>
+                <div id="txtBox_02">
+                    <p>
+                        <strong>SUPERSONIC</strong><br><br><br>
+                        You make me laugh<br>
+                        Give me your autograph<br>
+                        Can I ride with you<br>
+                        In your BMW<br>
+                        You can sail with me<br>
+                        In my yellow submarine<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="main_content_03"> 
+                <div class="content_Box_03"><img src="main_img_03.png" alt=""></div>
+            </div>
+
+            <div class="main_content_04"> 
+                <div class="content_Box_04"><img src="main_img_04.png" alt=""></div>
+            </div>
+        </div>
+        <div class = "image_content">
+
+            <div class="content_Box_05"><img src="sub_img.jpg" alt=""></div>
+        </div>
+        <div class = "store_content">
+            <div class = "store_title"><strong>STORE</strong><br></div>
+
+            <div class = "product_01">
+                <div><img src="store_img_01.png" alt="상품이 없습니다.">
+                </div>
+                <div class = "product_name">
+                    <p><strong>COSTER SET</strong><br></p>
+                </div>
+                <div class = "product_price">
+                    <span>14000\</span>
+                </div>
+
+                <div class = "view_01">
+                    <button type="button">카트에 담기</button>
+                    <button type="button">자세히 보기</button>
+                </div>
+
+
+            </div>
+
+            
+            <div class = "product_02">
+                <div><img src="store_img_02.png" alt="상품이 없습니다."></div>
+                <div class = "product_name">
+                    <p><strong>GLASS NO REASON</strong><br></p>
+                </div>
+                <div class = "product_price">
+                    <span>17000\</span>
+                </div>
+
+                <div class = "view_02">
+                    <button type="button">카트에 담기</button>
+                    <button type="button">자세히 보기</button>
+                </div>
+
+            </div>
+
+            
+            <div class = "product_03">
+                <div><img src="store_img_03.png" alt="상품이 없습니다."></div>
+                <div class = "product_name">
+                    <p><strong>HARD COVER PERSONAL</strong><br></p>
+                </div>
+                <div class = "product_price">
+                    <span>11000\</span>
+                    
+                </div>
+
+                <div class = "view_03">
+                    <button type="button">카트에 담기</button>
+                    <button type="button">자세히 보기</button>
+                </div>
+
+            </div>
+
+            
+            <div class = "product_04">
+                <div><img src="store_img_04.png" alt="상품이 없습니다."></div>
+                <div class = "product_name">
+                    <p><strong>FLUFFY HOODIE</strong><br></p>
+                </div>
+                <div class = "product_price">
+                    <span style="color: gray"><STRIKE>76000\</STRIKE></span>
+                    <span>--></span>
+                    <span>54000\</span>
+                </div>
+
+                <div class = "view_04">
+                    <button type="button">카트에 담기</button>
+                    <button type="button">자세히 보기</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="lookbook">
+            <div class = "store_title"><strong>LOOKBOOK</strong></div>
+            <div class="slider">
+                <input type="radio" name="slide" id="slide1" checked>
+                <input type="radio" name="slide" id="slide2">
+                <input type="radio" name="slide" id="slide3">
+                <input type="radio" name="slide" id="slide4">
+                <ul id="imgholder" class="imgs">
+                    <li><img src="lookbook_00.PNG" alt="이미지가 없습니다."></li>
+                    <li><img src="lookbook_01.PNG" alt="이미지가 없습니다."></li>
+                    <li><img src="lookbook_02.PNG" alt="이미지가 없습니다."></li>
+                    <li><img src="lookbook_03.PNG" alt="이미지가 없습니다."></li>
+                </ul>
+                <div class="bullets">
+                    <label for="slide1">&nbsp;</label>
+                    <label for="slide2">&nbsp;</label>
+                    <label for="slide3">&nbsp;</label>
+                    <label for="slide4">&nbsp;</label>
+                </div>
+            </div>
+
+          </div>
+
+
+        <div class="ect_content">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/-UGbOqadHb0?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <div class="contact">
+                    <p><strong>CONTACT</strong></p>
+                    <p>phone:010-22-2222</p>
+                    <p>address: kh</p>
+
+                </div>
+
+                <div class="copyright"><p>Copyright (C) 2021 AR all rights reserved. Copyright for AR all rights reserved.</p></div>
+        </div>
+
+
+    </div>
+</body>
+</html>
